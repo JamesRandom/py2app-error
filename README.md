@@ -1,4 +1,4 @@
-# Minimal example of py2app error
+# Minimal reproducer of py2app error
 
 Build the Timer app with:
 
@@ -26,10 +26,36 @@ ImportError: dlopen(/Users/jamie/Documents/Projects/python/DEBUG/dist/Timer.app/
 
 See [launch_error.txt](launch_error.txt) for complete error log.
 
+Note:
 
 * If the package is built with the `--alias` option then the launch error does not occur
 
 * If the line `import wx` is removed from `timer.py` then the launch error does not occur
+
+Possibly related errors in the [build output](build_output.txt):
+
+```
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/strip: fatal error: the __LINKEDIT segment does not cover the end of the file (can't be processed) in: /Users/jamie/Documents/Projects/python/py2app-error/dist/Timer.app/Contents/Frameworks/libz.1.3.1.dylib
+
+...
+
+/Users/jamie/Documents/Projects/python/py2app-error/dist/Timer.app/Contents/MacOS/Timer: invalid or unsupported format for signature
+
+...
+
+/Users/jamie/Documents/Projects/python/py2app-error/dist/Timer.app/Contents/Frameworks/libz.1.3.1.dylib: main executable failed strict validation
+...
+
+/Users/jamie/Documents/Projects/python/py2app-error/dist/Timer.app/Contents/MacOS/Timer: replacing existing signature
+/Users/jamie/Documents/Projects/python/py2app-error/dist/Timer.app/Contents/MacOS/Timer: invalid or unsupported format for signature
+In subcomponent: /Users/jamie/Documents/Projects/python/py2app-error/dist/Timer.app/Contents/Frameworks/libz.1.3.1.dylib
+
+...
+
+/Users/jamie/Documents/Projects/python/py2app-error/dist/Timer.app: replacing existing signature
+/Users/jamie/Documents/Projects/python/py2app-error/dist/Timer.app: resource fork, Finder information, or similar detritus not allowed
+file with invalid attached data: Disallowed xattr com.apple.FinderInfo found on /Users/jamie/Documents/Projects/python/py2app-error/dist/Timer.app
+```
 
 ## Version information
 
@@ -37,9 +63,9 @@ See [launch_error.txt](launch_error.txt) for complete error log.
 
 ```
 $ sw_vers
-ProductName:		macOS
-ProductVersion:		14.5
-BuildVersion:		23F79
+ProductName:  macOS
+ProductVersion:  14.5
+BuildVersion:  23F79
 ```
 
 ### Python (MacPorts)
