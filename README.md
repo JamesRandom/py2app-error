@@ -42,12 +42,14 @@ ProductVersion:		14.5
 BuildVersion:		23F79
 ```
 
-### Python
+### Python (MacPorts)
 
 ```
 $ python --version
 Python 3.11.8
 ```
+
+Note: Also tried using Python 3.9 with the same result.
 
 ### Pip modules
 
