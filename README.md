@@ -1,6 +1,6 @@
 # Minimal reproducer of py2app error
 
-Build the Timer app with:
+I build the Timer app with:
 
 ```
 $ python setup.py py2app &> build_output.txt
@@ -58,6 +58,10 @@ file with invalid attached data: Disallowed xattr com.apple.FinderInfo found on 
 ```
 
 ## Version information
+
+### Hardware
+
+Macbook Air M1 2020, 16GB memory.
 
 ### OS
 
